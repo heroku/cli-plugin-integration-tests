@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for test_file in $(dirname $0)/../tests/*_test.sh; do
+    bash "$test_file"
+done
