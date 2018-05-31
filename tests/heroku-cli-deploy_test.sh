@@ -22,6 +22,7 @@ curl -o ${war} -sL https://github.com/heroku/heroku-cli-deploy/raw/master/test/f
 assert_exists "${war}"
 echo "-> deploying"
 out=$(cd /tmp && heroku deploy:war ${war} -a ${app})
+assert_contains "Uploading sample.war" "$out"
 assert_contains "including: sample.war" "$out"
-assert_contains "-----> Done" "$out"
+assert_contains "Done" "$out"
 echo "-> SUCCESS"
